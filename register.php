@@ -70,13 +70,11 @@ if (isset($_POST['btn'])) {
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="login.php"><i class="fa fa-dollar"></i> Login</a></li>
-                        <li><a href="register.php"><i class="fa fa-user-o"></i> Register</a></li>
+                        <li><a href="login.php"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li><a href="register.php"><i class="fa fa-pencil"></i> Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -91,10 +89,11 @@ if (isset($_POST['btn'])) {
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="index.php" class="logo">
+                                <a href="#" class="logo">
                                     <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -119,11 +118,7 @@ if (isset($_POST['btn'])) {
                             <div class="header-ctn">
                                 <!-- Wishlist -->
                                 <div>
-                                    <a href="#">
-                                        <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
+
                                 </div>
                                 <!-- /Wishlist -->
 
@@ -204,7 +199,7 @@ if (isset($_POST['btn'])) {
                         <li><a href="#">New sales</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
-                        <li><a href="#">Accessories</a></li>
+
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -258,27 +253,7 @@ if (isset($_POST['btn'])) {
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="newsletter">
-                            <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                            <form>
-                                <input class="input" type="email" placeholder="Enter Your Email">
-                                <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-                            </form>
-                            <ul class="newsletter-follow">
-                                <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
                 <!-- /row -->
@@ -300,7 +275,7 @@ if (isset($_POST['btn'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -356,23 +331,7 @@ if (isset($_POST['btn'])) {
             <div id="bottom-footer" class="section">
                 <div class="container">
                     <!-- row -->
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                            </ul>
-                            <span class="copyright">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </span>
-                        </div>
-                    </div>
+
                     <!-- /row -->
                 </div>
                 <!-- /container -->

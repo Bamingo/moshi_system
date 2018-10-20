@@ -53,7 +53,7 @@ if (empty($_SESSION['email'])) {
                         <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        
+
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -69,10 +69,11 @@ if (empty($_SESSION['email'])) {
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="index.php" class="logo">
-                                    <img src="" alt="">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -96,7 +97,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                
+
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -169,14 +170,14 @@ if (empty($_SESSION['email'])) {
                 <!-- responsive-nav -->
                 <div id="responsive-nav">
                     <!-- NAV -->
-                     <ul class="main-nav nav navbar-nav">
+                    <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="#">Hot News</a></li>
                         <li><a href="#">Employments</a></li>
                         <li><a href="#">New sales</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
-                        <li><a href="#">Accessories</a></li>
+
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -195,44 +196,44 @@ if (empty($_SESSION['email'])) {
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <h2 class="section-heading text-uppercase">LIST OF ACTIONS</h2>
-                                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                                <h3 class="section-subheading text-muted">Karibu na uweze ku-share ulichonacho.</h3>
                             </div>
                         </div>
                         <div class="row text-center">
 
-                           <div class="col-md-4">
+                            <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                     <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
                                 </span>
-                               <a href="add_news.php"><h4 class="service-heading">Add News</h4></a>
+                                <a href="add_news.php"><h4 class="service-heading">Add News</h4></a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                             </div>
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                     <i class="fa fa-cart-arrow-down fa-stack-1x fa-inverse"></i>
                                 </span>
-                                 <a href="adverts.php"><h4 class="service-heading">Add Sales</h4></a>
+                                <a href="adverts.php"><h4 class="service-heading">Post tangazo lako</h4></a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                             </div>
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                     <i class="fa fa-user-circle fa-stack-1x fa-inverse"></i>
                                 </span>
-                                 <a href="my_profile.php"><h4 class="service-heading">Edit Profile</h4></a>
+                                <a href="my_profile.php"><h4 class="service-heading">Edit Profile</h4></a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                             </div>
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                     <i class="fa fa-black-tie fa-stack-1x fa-inverse"></i>
                                 </span>
-                                <a href=""><h4 class="service-heading">Add Job</h4></a>
+                                <a href="job_adverts.php"><h4 class="service-heading">Nafasi za kazi</h4></a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                             </div>
-                             <div class="col-md-4">
+                            <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
                                     <i class="fa fa-hospital-o fa-stack-1x fa-inverse"></i>
@@ -240,8 +241,8 @@ if (empty($_SESSION['email'])) {
                                 <a href=""><h4 class="service-heading">Social Services</h4></a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                             </div>
-                           
-                            
+
+
                             <div class="col-md-4">
                                 <span class="fa-stack fa-4x">
                                     <i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -276,7 +277,7 @@ if (empty($_SESSION['email'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -332,23 +333,7 @@ if (empty($_SESSION['email'])) {
             <div id="bottom-footer" class="section">
                 <div class="container">
                     <!-- row -->
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                            </ul>
-                            <span class="copyright">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This System made by lucentmeddy <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </span>
-                        </div>
-                    </div>
+
                     <!-- /row -->
                 </div>
                 <!-- /container -->

@@ -61,10 +61,11 @@
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="index.php" class="logo">
-                                    <img src="" alt="">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -168,7 +169,7 @@
                         <li><a href="#">New sales</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
-                        <li><a href="#">Accessories</a></li>
+
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -200,14 +201,14 @@
                     <!-- section title -->
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title">New Products</h3>
+                            <h3 class="title">Bidhaa Mpya</h3>
                             <div class="section-nav">
-                                <ul class="section-tab-nav tab-nav">
+                                <!--<ul class="section-tab-nav tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
                                     <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
                                     <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
                                     <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-                                </ul>
+                                </ul>-->
                             </div>
                         </div>
                     </div>
@@ -228,7 +229,7 @@
                                             while ($row = mysqli_fetch_array($result)) {
                                                 echo '<div class="product">
                                             <div class="product-img">
-                                                <img src="profile_img/' . $row['name'] . '" alt="" height="250">
+                                                <img src="product_img/' . $row['name'] . '" alt="" height="250">
                                                 <div class="product-label">
                                                     <span class="sale">-30%</span>
                                                     <span class="new">NEW</span>
@@ -284,13 +285,10 @@
                     <!-- section title -->
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title">News Update</h3> <a href="">View All</a>
+                            <h3 class="title">Habari Mchanganyiko</h3> <a href="">View All</a>
                             <div class="section-nav">
                                 <ul class="section-tab-nav tab-nav">
-                                    <li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-                                    <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-                                    <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-                                    <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -350,6 +348,78 @@
             </div>
             <!-- /container -->
         </div>
+         <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+
+                    <!-- section title -->
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">Nafasi za kazi na tenda</h3> <a href="">View All</a>
+                            <div class="section-nav">
+                                <ul class="section-tab-nav tab-nav">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- Products tab & slick -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="products-tabs">
+                                <!-- tab -->
+                                <div id="tab1" class="tab-pane active">
+                                    <div class="products-slick" data-nav="#slick-nav-1">
+                                        <?php
+                                        include 'db_connect.php';
+
+                                        $sql = "SELECT * FROM job_adverts";
+                                        if ($result = mysqli_query($link, $sql)) {
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                echo '<div class="product">
+                                            <div class="product-img">
+                                                <img src="product_img/' . $row['name'] . '" alt="" height="250">
+                                                <div class="product-label">
+                                                    <span class="sale">-30%</span>
+                                                    <span class="new">NEW</span>
+                                                </div>
+                                            </div>
+                                            <div class="product-body">
+                                                <h4 class="product-price">' . $row['job_title'] . '</h4>
+                                                <div class="product-btns">
+                                                    <a href="view_product.php?news_id=' . $row['job_id'] . '" class="btn btn-primary">Read More</a>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>';
+                                            }
+                                        }
+                                        ?>
+
+                                        <!-- /product -->
+
+
+
+                                        <!-- product -->
+
+                                        <!-- /product -->
+                                    </div>
+                                    <div id="slick-nav-1" class="products-slick-nav"></div>
+                                </div>
+                                <!-- /tab -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Products tab & slick -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
         <!-- /SECTION -->
 
         <!-- SECTION -->
@@ -357,7 +427,7 @@
             <!-- container -->
             <div class="container">
                 <!-- row -->
-               
+
                 <!-- /row -->
             </div>
             <!-- /container -->
@@ -370,7 +440,7 @@
             <div class="container">
                 <!-- row -->
                 <div class="row">
-                    
+
                 </div>
                 <!-- /row -->
             </div>

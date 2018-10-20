@@ -55,7 +55,7 @@ if (empty($_SESSION['email'])) {
                         <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        
+
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -71,10 +71,11 @@ if (empty($_SESSION['email'])) {
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="index.php" class="logo">
-                                    <img src="" alt="">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -98,7 +99,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                
+
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -171,7 +172,7 @@ if (empty($_SESSION['email'])) {
                 <!-- responsive-nav -->
                 <div id="responsive-nav">
                     <!-- NAV -->
-                     <ul class="main-nav nav navbar-nav">
+                    <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="#">Hot News</a></li>
                         <li><a href="#">Employments</a></li>
@@ -196,57 +197,56 @@ if (empty($_SESSION['email'])) {
                     <div class="container">
                         <div class="col-lg-4"></div>
                         <div class="col-lg-6">
-                                <table class="table table-bordered table-hover">
-                                    <tr style="background-color:">
-                                        <td colspan="2">DETAILS</td>
-                                    </tr>
+                            <table class="table table-bordered table-hover">
+                                <tr style="background-color:">
+                                    <td colspan="2">DETAILS</td>
+                                </tr>
 
-                                    <?php
-                                    include 'db_connect.php';
+                                <?php
+                                include 'db_connect.php';
 
-                                    $sql = "SELECT * FROM user_profile WHERE user_id = '" . $_SESSION['user_id'] . "' ";
-                                    if ($result = mysqli_query($link, $sql)) {
-                                        while ($row = mysqli_fetch_array($result)) {
-                                            echo '<tr>';
-                                            echo '<td colspan="2">' . '<img src="profile_img/'.$row['name'].'" height="200" width="200" class="img img-thumnail">' . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>EMAIL ADDRESS</td>';
-                                            echo '<td>' . $_SESSION['email'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>FIRST NAME</td>';
-                                            echo '<td>' . $row['fname'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>LAST NAME</td>';
-                                            echo '<td>' . $row['lname'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>DATE OF BIRTH</td>';
-                                            echo '<td>' . $row['date'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>PHONE</td>';
-                                            echo '<td>' . $row['phone'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>REGION</td>';
-                                            echo '<td>' . $row['region'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td>GENDER</td>';
-                                            echo '<td>' . $row['gender'] . '</td>';
-                                            echo '</tr>';
-                                            echo '<tr>';
-                                            echo '<td><a hef="" class="btn btn-primary">Update Profile</a></td>';
-                                            echo '<td><a hef="" class="btn btn-danger">Delete Account</a></td>';
-                                            echo '</tr>';
-                                                                                     
-                                        }
+                                $sql = "SELECT * FROM user_profile WHERE user_id = '" . $_SESSION['user_id'] . "' ";
+                                if ($result = mysqli_query($link, $sql)) {
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        echo '<tr>';
+                                        echo '<td colspan="2">' . '<img src="profile_img/' . $row['name'] . '" height="200" width="200" class="img img-thumnail">' . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>EMAIL ADDRESS</td>';
+                                        echo '<td>' . $_SESSION['email'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>FIRST NAME</td>';
+                                        echo '<td>' . $row['fname'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>LAST NAME</td>';
+                                        echo '<td>' . $row['lname'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>DATE OF BIRTH</td>';
+                                        echo '<td>' . $row['date'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>PHONE</td>';
+                                        echo '<td>' . $row['phone'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>REGION</td>';
+                                        echo '<td>' . $row['region'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td>GENDER</td>';
+                                        echo '<td>' . $row['gender'] . '</td>';
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                        echo '<td><a hef="" class="btn btn-primary">Update Profile</a></td>';
+                                        echo '<td><a hef="" class="btn btn-danger">Delete Account</a></td>';
+                                        echo '</tr>';
                                     }
-                                    ?>
-                                </table>
+                                }
+                                ?>
+                            </table>
                         </div>
                     </div>
                 </section>
@@ -272,8 +272,8 @@ if (empty($_SESSION['email'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    
-                                   
+
+
                                 </ul>
                             </div>
                         </div>

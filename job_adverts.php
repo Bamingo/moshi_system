@@ -199,41 +199,62 @@ if (empty($_SESSION['email'])) {
                             <center>
                                 <?php
                                 include 'db_connect.php';
-
+                                
                                 if (isset($_POST['btn'])) {
-                                    $title = $_POST['title'];
-                                    $author = $_POST['author'];
-                                    $descriptions = $_POST['descriptions'];
-                                    $destination = "news_img/";
+                                    $job_title = $_POST['job_title'];
+                                    $company_name = $_POST['company_name'];
                                     $name = $_FILES['file']['name'];
+                                    $deadline = $_POST['deadline'];
+                                    $details = $_POST['details'];                                
+                                    $destination = "product_img/";             
                                     $tmp_name = $_FILES['file']['tmp_name'];
+                                    $type = $_FILES['file']['type'];
+                                    $extension = strtolower(substr($name, strpos($name, '.') + 1));
+                                    //$file_size = $_FILES['fie']['file_size'];
+                                    //$max_size = 5000000;
 
-                                    if (move_uploaded_file($tmp_name, $destination . $name)) {
-                                        $sql = "INSERT INTO news(title, author, name, user_id, descriptions) VALUES('$title','$author','$name','" . $_SESSION['user_id'] . "', '$descriptions')";
-                                        if (mysqli_query($link, $sql)) {
-                                            echo 'uploaded';
+
+                                    if (!empty($job_title) && !empty($company_name) && !empty($deadline) && !empty($details)) {
+                                        if (($extension == 'jpg' || $extension == 'jpeg') && $type == 'image/jpeg') {
+                                            if (move_uploaded_file($tmp_name, $destination . $name)) {
+                                                $sql = "INSERT INTO job_adverts(job_title, company_name, name, deadline, details, user_id) VALUES('$job_title', '$company_name','$name','$deadline', '$details', '" . $_SESSION['user_id'] . "')";
+                                                if (mysqli_query($link, $sql)) {
+                                                    echo 'uploaded';
+                                                } else {
+                                                    echo 'failed ' . mysqli_error($link);
+                                                }
+                                            }
                                         } else {
-                                            echo 'failed ' . mysqli_error($link);
+                                            echo 'PLEASE CHOOSE CORRECT FORMAT';
                                         }
+                                    } else {
+                                        echo 'PLEASE FILL ALL THE FIELD'. mysqli_error($link);
                                     }
                                 }
+
+                               
                                 ?>
-                                <form action="add_news.php" class="form-group-sm" method="post" style="text-align: left" enctype="multipart/form-data">
-                                    <h3 style="text-align: center; padding: 15px 20px;">PLEASE YOUR NEWS HERE</h3>
+                                <form action="job_adverts.php" class="form-group-sm" method="post" style="text-align: left" enctype="multipart/form-data">
+                                    <h3 style="text-align: center; padding: 15px 20px;">POST TANGAZO LAKO LA KAZI HAPA</h3>
                                     <div class="form-group">
-                                        <label for="email">News Title:</label>
-                                        <input type="title" class="form-control" id="email" name="title">
+                                        <label for="email">Jina La Kazi:</label>
+                                        <input type="title" class="form-control" id="email" name="job_title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">Author:</label>
-                                        <input type="text" class="form-control" id="email" name="author">
+                                        <label for="email">Jina la kampuni:</label>
+                                        <input type="text" class="form-control" id="email" name="company_name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">Upload Photo:</label>
+                                        <label for="email">Weka File:</label>
                                         <input type="file" class="form-control" id="file" name="file">
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="descriptions" class="form-control">!</textarea>
+                                        <label for="email">Weka Deadline:</label>
+                                        <input type="date" class="form-control" id="file" name="deadline">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Weka Maelezo:</label>
+                                        <textarea name="details" class="form-control"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="btn">Submit</button>
                                 </form> 

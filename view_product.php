@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +45,7 @@ session_start();
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                       
+
                         <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
@@ -64,7 +63,12 @@ session_start();
                     <div class="row">
                         <!-- LOGO -->
                         <div class="col-md-3">
-                            
+                            <div class="header-logo">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
+                                </a>
+                            </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -184,12 +188,12 @@ session_start();
         <!-- SECTION -->
         <div class="section">
             <!-- container -->
-            <div class="container">
+            <div class="container-fluid">
                 <!-- row -->
 
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <div class="col-lg-6">
                         <table class="table table-bordered table-responsive">
 
                             <?php
@@ -201,7 +205,7 @@ session_start();
 
                                 while ($row = mysqli_fetch_array($results)) {
                                     echo '<tr>';
-                                    echo '<td colspan="2">' . '<img src="profile_img/' . $row['name'] . '" height="300" width="450" class="img img-thumnail">' . '</td>';
+                                    echo '<td colspan="2">' . '<img src="product_img/' . $row['name'] . '" height="300" width="450" class="img img-thumnail">' . '</td>';
                                     echo '</tr>';
                                     echo '<tr>';
                                     echo '<td style= "font-weight:bold;">PRODUCT NAME</td>';
@@ -218,6 +222,10 @@ session_start();
                                     echo '<td>' . $row['quantity'] . '</td>';
                                     echo '</tr>';
                                     echo '<tr>';
+                                    echo '<td style= "font-weight:bold;">PRODUCT PRICE</td>';
+                                    echo '<td>' . 'TZS ' . $row['product_price'] . '</td>';
+                                    echo '</tr>';
+                                    echo '<tr>';
                                     echo '<tr>';
                                     echo '<td style= "font-weight:bold; text-align:center;" colspan="2">PRODUCT DETAILS</td>';
                                     echo '</tr>';
@@ -225,9 +233,8 @@ session_start();
                                     echo '<td colspan="2">' . $row['descriptions'] . '</td>';
                                     echo '</tr>';
                                     echo '<tr>';
-                                    echo '<td colspan="2">'.'<h2>PIGA SIMU: <a href="#"><i class="fa fa-phone"></i> 0773220220</a></h2>'.'</td>';
+                                    echo '<td colspan="2">' . '<h2>PIGA SIMU: <a href="#"><i class="fa fa-phone"></i> ' . $row['phone'] . '</a></h2>' . '</td>';
                                     echo '<tr>';
-                                    
                                 }
                             }
                             ?>
@@ -265,10 +272,7 @@ session_start();
                             <div class="footer">
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                                <ul class="footer-links">
-                                    <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                                    <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -324,23 +328,6 @@ session_start();
             <div id="bottom-footer" class="section">
                 <div class="container">
                     <!-- row -->
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                            </ul>
-                            <span class="copyright">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </span>
-                        </div>
-                    </div>
                     <!-- /row -->
                 </div>
                 <!-- /container -->

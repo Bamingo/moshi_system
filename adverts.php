@@ -55,7 +55,7 @@ if (empty($_SESSION['email'])) {
                         <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        
+
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -71,10 +71,11 @@ if (empty($_SESSION['email'])) {
                         <!-- LOGO -->
                         <div class="col-md-3">
                             <div class="header-logo">
-                                <a href="index.php" class="logo">
-                                    <img src="" alt="">
+                                <a href="#" class="logo">
+                                    <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
+
                         </div>
                         <!-- /LOGO -->
 
@@ -98,7 +99,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                
+
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -204,6 +205,7 @@ if (empty($_SESSION['email'])) {
                                     $category = $_POST['category'];
                                     $quantity = $_POST['quantity'];
                                     $product_price = $_POST['product_price'];
+                                    $phone = $_POST['phone'];
                                     $descriptions = $_POST['descriptions'];
                                     $destination = "product_img/";
                                     $name = $_FILES['file']['name'];
@@ -217,7 +219,7 @@ if (empty($_SESSION['email'])) {
                                     if (!empty($product_name) && !empty($category) && !empty($quantity) && !empty($product_price) && !empty($descriptions)) {
                                         if (($extension == 'jpg' || $extension == 'jpeg') && $type == 'image/jpeg') {
                                             if (move_uploaded_file($tmp_name, $destination . $name)) {
-                                                $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$descriptions', '" . $_SESSION['user_id'] . "')";
+                                                $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, phone, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$phone', '$descriptions', '" . $_SESSION['user_id'] . "')";
                                                 if (mysqli_query($link, $sql)) {
                                                     echo 'uploaded';
                                                 } else {
@@ -264,6 +266,10 @@ if (empty($_SESSION['email'])) {
                                         <input type="text" class="form-control" name="product_price">
                                     </div>
                                     <div class="form-group">
+                                        <label for="email">Product Price:</label>
+                                        <input type="text" class="form-control" name="phone">
+                                    </div>
+                                    <div class="form-group">
                                         <textarea name="descriptions"></textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="btn">Upload</button>
@@ -297,7 +303,7 @@ if (empty($_SESSION['email'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    
+
                                 </ul>
                             </div>
                         </div>
