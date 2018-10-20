@@ -51,12 +51,11 @@ if (empty($_SESSION['email'])) {
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong><?php echo $_SESSION['email'] ?></strong></a></li>
+                        <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="my_account.php"><i class="fa fa-dollar"></i> <strong><?php echo $_SESSION['email'] ?></strong></a></li>
+                        
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -99,13 +98,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                <div>
-                                    <a href="#">
-                                        <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
-                                </div>
+                                
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -178,7 +171,7 @@ if (empty($_SESSION['email'])) {
                 <!-- responsive-nav -->
                 <div id="responsive-nav">
                     <!-- NAV -->
-                     <ul class="main-nav nav navbar-nav">
+                    <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
                         <li><a href="#">Hot News</a></li>
                         <li><a href="#">Employments</a></li>
@@ -204,28 +197,41 @@ if (empty($_SESSION['email'])) {
                         <div class="col-lg-6">
                             <center>
                                 <?php
-                                    include 'db_connect.php';
+                                include 'db_connect.php';
 
-                                    if (isset($_POST['btn'])) {
-                                        $product_name = $_POST['product_name'];
-                                        $category = $_POST['category'];
-                                        $quantity = $_POST['quantity'];
-                                        $product_price = $_POST['product_price'];
-                                        $descriptions = $_POST['descriptions'];
-                                        $destination = "product_img/";
-                                        $name = $_FILES['file']['name'];
-                                        $tmp_name = $_FILES['file']['tmp_name'];
+                                if (isset($_POST['btn'])) {
+                                    $product_name = $_POST['product_name'];
+                                    $category = $_POST['category'];
+                                    $quantity = $_POST['quantity'];
+                                    $product_price = $_POST['product_price'];
+                                    $descriptions = $_POST['descriptions'];
+                                    $destination = "product_img/";
+                                    $name = $_FILES['file']['name'];
+                                    $tmp_name = $_FILES['file']['tmp_name'];
+                                    $type = $_FILES['file']['type'];
+                                    $extension = strtolower(substr($name, strpos($name, '.') + 1));
+                                    //$file_size = $_FILES['fie']['file_size'];
+                                    //$max_size = 5000000;
 
-                                        if (move_uploaded_file($tmp_name, $destination . $name)) {
-                                            $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$descriptions', '" . $_SESSION['user_id'] . "')";
-                                            if (mysqli_query($link, $sql)) {
-                                                echo 'uploaded';
-                                            } else {
-                                                echo 'failed ' . mysqli_error($link);
+
+                                    if (!empty($product_name) && !empty($category) && !empty($quantity) && !empty($product_price) && !empty($descriptions)) {
+                                        if (($extension == 'jpg' || $extension == 'jpeg') && $type == 'image/jpeg') {
+                                            if (move_uploaded_file($tmp_name, $destination . $name)) {
+                                                $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$descriptions', '" . $_SESSION['user_id'] . "')";
+                                                if (mysqli_query($link, $sql)) {
+                                                    echo 'uploaded';
+                                                } else {
+                                                    echo 'failed ' . mysqli_error($link);
+                                                }
                                             }
+                                        } else {
+                                            echo 'PLEASE CHOOSE CORRECT FORMAT';
                                         }
+                                    } else {
+                                        echo 'PLEASE FILL ALL THE FIELD';
                                     }
-                                    ?>
+                                }
+                                ?>
                                 <form action="adverts.php" class="form-group-sm" method="post" style="text-align: left" enctype="multipart/form-data">
                                     <h3 style="text-align: center; padding: 15px 20px;">UPLOAD YOUR PRODUCT HERE</h3>
                                     <div class="form-group">
@@ -291,9 +297,7 @@ if (empty($_SESSION['email'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                                    <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>

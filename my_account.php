@@ -49,12 +49,11 @@ if (empty($_SESSION['email'])) {
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-                        <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong><?php echo $_SESSION['email'] ?></strong></a></li>
+                        <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href=""><i class="fa fa-dollar"></i> <strong><?php echo $_SESSION['email'] ?></strong></a></li>
+                        
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -97,13 +96,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-                                <div>
-                                    <a href="#">
-                                        <i class="fa fa-heart-o"></i>
-                                        <span>Your Wishlist</span>
-                                        <div class="qty">2</div>
-                                    </a>
-                                </div>
+                                
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -283,9 +276,7 @@ if (empty($_SESSION['email'])) {
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
                                 <ul class="footer-links">
-                                    <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-                                    <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
