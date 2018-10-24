@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,10 +46,13 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
-                    </ul>
-                    <ul class="header-links pull-right">
-                        <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo '<li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong>'.$_SESSION['email'].'</strong></a></li>'.'<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>';
+                        } else {
+                            echo '<li><a href="login.php"><i class="fa fa-sign-in"></i> Login</a></li><li><a href="register.php"><i class="fa fa-pencil"></i> Register</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

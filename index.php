@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,8 +48,13 @@
 
                     </ul>
                     <ul class="header-links pull-right">
-                        <li><a href="login.php"><i class="fa fa-sign-in"></i> Login</a></li>
-                        <li><a href="register.php"><i class="fa fa-pencil"></i> Register</a></li>
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo '<li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong>'.$_SESSION['email'].'</strong></a></li>'.'<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>';
+                        } else {
+                            echo '<li><a href="login.php"><i class="fa fa-sign-in"></i> Login</a></li><li><a href="register.php"><i class="fa fa-pencil"></i> Register</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -93,7 +101,7 @@
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                             
+
                                 <!-- /Cart -->
 
                                 <!-- Menu Toogle -->
@@ -182,13 +190,13 @@
                                 <!-- tab -->
                                 <div id="tab1" class="tab-pane active">
                                     <div class="products-slick" data-nav="#slick-nav-1">
-                                        <?php
-                                        include 'db_connect.php';
+<?php
+include 'db_connect.php';
 
-                                        $sql = "SELECT * FROM adverts";
-                                        if ($result = mysqli_query($link, $sql)) {
-                                            while ($row = mysqli_fetch_array($result)) {
-                                                echo '<div class="product">
+$sql = "SELECT * FROM adverts";
+if ($result = mysqli_query($link, $sql)) {
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<div class="product">
                                             <div class="product-img">
                                                 <img src="product_img/' . $row['name'] . '" alt="" height="250">
                                                 <div class="product-label">
@@ -206,9 +214,9 @@
                                             </div>
                                           
                                         </div>';
-                                            }
-                                        }
-                                        ?>
+    }
+}
+?>
 
                                         <!-- /product -->
 
@@ -263,13 +271,13 @@
                                 <!-- tab -->
                                 <div id="tab1" class="tab-pane active">
                                     <div class="products-slick" data-nav="#slick-nav-1">
-                                        <?php
-                                        include 'db_connect.php';
+<?php
+include 'db_connect.php';
 
-                                        $sql = "SELECT * FROM news";
-                                        if ($result = mysqli_query($link, $sql)) {
-                                            while ($row = mysqli_fetch_array($result)) {
-                                                echo '<div class="product">
+$sql = "SELECT * FROM news";
+if ($result = mysqli_query($link, $sql)) {
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<div class="product">
                                             <div class="product-img">
                                                 <img src="news_img/' . $row['name'] . '" alt="" height="250">
                                                 <div class="product-label">
@@ -285,9 +293,9 @@
                                             </div>
                                           
                                         </div>';
-                                            }
-                                        }
-                                        ?>
+    }
+}
+?>
 
                                         <!-- /product -->
 
@@ -309,7 +317,7 @@
             </div>
             <!-- /container -->
         </div>
-         <div class="section">
+        <div class="section">
             <!-- container -->
             <div class="container">
                 <!-- row -->
@@ -335,13 +343,13 @@
                                 <!-- tab -->
                                 <div id="tab1" class="tab-pane active">
                                     <div class="products-slick" data-nav="#slick-nav-1">
-                                        <?php
-                                        include 'db_connect.php';
+<?php
+include 'db_connect.php';
 
-                                        $sql = "SELECT * FROM job_adverts";
-                                        if ($result = mysqli_query($link, $sql)) {
-                                            while ($row = mysqli_fetch_array($result)) {
-                                                echo '<div class="product">
+$sql = "SELECT * FROM job_adverts";
+if ($result = mysqli_query($link, $sql)) {
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<div class="product">
                                             <div class="product-img">
                                                 <img src="product_img/' . $row['name'] . '" alt="" height="250">
                                                 <div class="product-label">
@@ -357,9 +365,9 @@
                                             </div>
                                           
                                         </div>';
-                                            }
-                                        }
-                                        ?>
+    }
+}
+?>
 
                                         <!-- /product -->
 
@@ -431,7 +439,7 @@
                             <div class="footer">
                                 <h3 class="footer-title">Links</h3>
                                 <ul class="footer-links">
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -453,7 +461,7 @@
                             <div class="footer">
                                 <h3 class="footer-title">Huduma zetu</h3>
                                 <ul class="footer-links">
-                                    
+
                                 </ul>
                             </div>
                         </div>
