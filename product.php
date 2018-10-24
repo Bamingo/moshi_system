@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (empty($_SESSION['email'])) {
-    header("location:login.php");
-    die();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +6,7 @@ if (empty($_SESSION['email'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>Add News</title>
+        <title>Electro - HTML Ecommerce Template</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -33,8 +26,6 @@ if (empty($_SESSION['email'])) {
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
-        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-        <script>tinymce.init({selector: 'textarea'});</script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,11 +42,9 @@ if (empty($_SESSION['email'])) {
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong><?php echo $_SESSION['email'] ?></strong></a></li>
                         <li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>
                     </ul>
                     <ul class="header-links pull-right">
-
                         <li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -75,7 +64,6 @@ if (empty($_SESSION['email'])) {
                                     <img src="./img/logo.png" alt="">
                                 </a>
                             </div>
-
                         </div>
                         <!-- /LOGO -->
 
@@ -99,7 +87,7 @@ if (empty($_SESSION['email'])) {
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
                                 <!-- Wishlist -->
-
+                           
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
@@ -134,13 +122,12 @@ if (empty($_SESSION['email'])) {
                 <div id="responsive-nav">
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#">Hot News</a></li>
                         <li><a href="#">Employments</a></li>
                         <li><a href="#">New sales</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
-                        <li><a href="#">Accessories</a></li>
                     </ul>
                     <!-- /NAV -->
                 </div>
@@ -150,101 +137,172 @@ if (empty($_SESSION['email'])) {
         </nav>
         <!-- /NAVIGATION -->
 
+        <!-- BREADCRUMB -->
+        
+        <!-- /BREADCRUMB -->
+
         <!-- SECTION -->
         <div class="section">
             <!-- container -->
-            <div class="container" style="display: block;">
-                <section id="services">
-                    <div class="container">
-                        <div class="col-lg-6">
-                            <center>
-                                <?php
-                                include 'db_connect.php';
 
-                                if (isset($_POST['btn'])) {
-                                    $product_name = $_POST['product_name'];
-                                    $category = $_POST['category'];
-                                    $quantity = $_POST['quantity'];
-                                    $product_price = $_POST['product_price'];
-                                    $phone = $_POST['phone'];
-                                    $descriptions = $_POST['descriptions'];
-                                    $destination = "product_img/";
-                                    $name = $_FILES['file']['name'];
-                                    $tmp_name = $_FILES['file']['tmp_name'];
-                                    $type = $_FILES['file']['type'];
-                                   // $extension = strtolower(substr($name, strpos($name, '.') + 1));
-                                    //$file_size = $_FILES['fie']['file_size'];
-                                    //$max_size = 5000000;
+            <div class="container">
+                <!-- row -->
 
+                <div class="row">
 
-                                    if (!empty($product_name) && !empty($category) && !empty($quantity) && !empty($product_price) && !empty($descriptions)) {
-                                        if (move_uploaded_file($tmp_name, $destination . $name)) {
-                                            $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, phone, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$phone', '$descriptions', '" . $_SESSION['user_id'] . "')";
-                                            if (mysqli_query($link, $sql)) {
-                                                echo '<span class="alert alert-success">HONGERA TANGAZO LAKO LIMETUMWA KIKAMIRIFU</span>';
-                                            } else {
-                                                echo 'failed ' . mysqli_error($link);
-                                            }
-                                        }
-                                    } else {
-                                        echo '<span class="alert alert-danger">TAFADHARI JAZA SEHEMU ZOTE UWEZE KUWEKA TANGAZO LAKO</span>';
-                                    }
-                                }
-                                ?><br><br>
-                                <form action="adverts.php" class="form-group-sm" method="post" style="text-align: left; margin-top: 10px;" enctype="multipart/form-data">
-                                    <h3 style="text-align: center; padding: 15px 20px;">UPLOAD YOUR PRODUCT HERE</h3>
-                                    <div class="form-group">
-                                        <label for="email">Jina la Bidhaa:</label>
-                                        <input type="text" class="form-control" id="" name="product_name">
-                                    </div>
-                                    <label for="email">Aina ya Bidhaa:</label>
-                                    <div class="form-group">
-                                        <select class="form-control" name="category">
-                                            <option>Fashion</option>
-                                            <option>Electronics</option>
-                                            <option>Farnitures</option>
-                                            <option>Movies</option>
-                                            <option>Social</option>
-                                            <option>Kids</option>
-                                            <option>Foods</option>
-                                            <option>Others</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Idadi ya Bidhaa:</label>
-                                        <input type="text" class="form-control" id="" name="quantity">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tetx">Weka Picha:</label>
-                                        <input type="file" class="form-control" id="" name="file">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Bei ya Bidhaa:</label>
-                                        <input type="text" class="form-control" name="product_price">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Namba yako ya Simu:</label>
-                                        <input type="text" class="form-control" name="phone">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="descriptions"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" name="btn">Upload</button>
-                                </form> 
-                            </center>
+                    <?php
+                    include 'db_connect.php';
 
+                    $sql = "SELECT * FROM adverts WHERE id = '" . $_GET['id'] . "'";
+                    $results = mysqli_query($link, $sql) or die(mysqli_error($link));
+                    if ($results) {
 
+                        while ($row = mysqli_fetch_array($results)) {
+                            echo ' <div class="col-md-5 col-md-push-2">
+                        <div id="product-main-img">
+                            <div class="product-preview">
+                                <img src="product_img/' . $row['name'] . '" alt="">
+                            </div>
 
+                            <div class="product-preview">
+                                <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+
+                            <div class="product-preview">
+                                <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+
+                            <div class="product-preview">
+                                <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <!-- Product main img -->
+
+                    <!-- /Product main img -->
+
+                    <!-- Product thumb imgs -->
+                    <div class="col-md-2  col-md-pull-5">
+                        <div id="product-imgs">
+                            <div class="product-preview">
+                                 <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+
+                            <div class="product-preview">
+                                 <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+
+                            <div class="product-preview">
+                                 <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+
+                            <div class="product-preview">
+                                 <img src="product_img/' . $row['name'] . '" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Product thumb imgs -->
+
+                    <!-- Product details -->
+                    <div class="col-md-5">
+                        <div class="product-details">
+                            <h2 class="product-name">Jina la Bidhaa: '.$row['product_name'].'</h2>
+                            <div>
+                            <h3 class="product-price" sytle="color:black;">Bei ya Bidhaa: TZS  '.$row['product_price'].' </h3> <br>
+                                <h3 class="product-price">Ctegory:  '.$row['category'].' </h3>
+                                
+                            </div>
+                            <h3>Maelezo:</h3>
+                            <p>'.$row['descriptions'].'</p>
+                            <div class="add-to-cart">
+                            <h3>Piga Simu</h3>
+                                <button class="btn btn-primary"><i class="fa fa-phone"></i> '.$row['phone'].'</button>
+                            </div>
+                        </div>
+                    </div>';
+                        }
+                    }
+                    ?>
+                    <!-- /Product details -->
+
+                    <!-- Product tab -->
+                    
+                    <!-- /product tab -->
+                </div>
+                <!-- /row -->
             </div>
             <!-- /container -->
         </div>
         <!-- /SECTION -->
 
-        <!-- NEWSLETTER -->
+        <!-- Section -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
 
+                    <div class="col-md-12">
+                        <div class="section-title text-center">
+                            <h3 class="title">Related Products</h3>
+                        </div>
+                    </div>
+
+                    <!-- product -->
+                    <div class="col-md-3 col-xs-6">
+                          <?php
+                                     /*   include 'db_connect.php';
+
+                                        $sql = "SELECT * FROM adverts";
+                                        if ($result = mysqli_query($link, $sql)) {
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                echo '<div class="product">
+                                            <div class="product-img">
+                                                <img src="product_img/' . $row['name'] . '" alt="" height="250">
+                                                <div class="product-label">
+                                                    <span class="sale">-30%</span>
+                                                    <span class="new">NEW</span>
+                                                </div>
+                                            </div>
+                                            <div class="product-body">
+                                                <p class="product-category">' . $row['category'] . '</p>
+                                                <h3 class="product-name"><a href="#">' . $row['product_name'] . '</a></h3>
+                                                <h4 class="product-price">TZS ' . $row['product_price'] . '</h4>
+                                                <div class="product-btns">
+                                                    <a href="view_product.php?id=' . $row['id'] . '" class="btn btn-primary">VIew Product</a>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>'
+                                            }
+                                        }*/
+                                        ?>
+                    </div>
+                    <!-- /product -->
+
+                    <!-- product -->
+                    
+                    <!-- /product -->
+
+                    <div class="clearfix visible-sm visible-xs"></div>
+
+                    <!-- product -->
+                   
+                    <!-- /product -->
+
+                    <!-- product -->
+                 
+                    <!-- /product -->
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /Section -->
+
+        <!-- NEWSLETTER -->
+       
         <!-- /NEWSLETTER -->
 
         <!-- FOOTER -->
@@ -259,9 +317,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">About Us</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                                <ul class="footer-links">
-
-                                </ul>
+                                
                             </div>
                         </div>
 
@@ -269,7 +325,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -280,7 +336,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Information</h3>
                                 <ul class="footer-links">
-
+                                 
                                 </ul>
                             </div>
                         </div>
@@ -289,7 +345,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -307,15 +363,10 @@ if (empty($_SESSION['email'])) {
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                                
                             </ul>
                             <span class="copyright">
-
+                                
                             </span>
                         </div>
                     </div>

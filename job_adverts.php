@@ -103,46 +103,7 @@ if (empty($_SESSION['email'])) {
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
-                                    <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
-                                        </div>
-                                        <div class="cart-btns">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- /Cart -->
 
                                 <!-- Menu Toogle -->
@@ -296,11 +257,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">Hot deals</a></li>
-                                    <li><a href="#">Laptops</a></li>
-                                    <li><a href="#">Smartphones</a></li>
-                                    <li><a href="#">Cameras</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -311,11 +268,7 @@ if (empty($_SESSION['email'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Information</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Orders and Returns</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -346,17 +299,10 @@ if (empty($_SESSION['email'])) {
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                                
                             </ul>
                             <span class="copyright">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This System made by lucentmeddy <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                
                             </span>
                         </div>
                     </div>

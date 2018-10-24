@@ -16,7 +16,7 @@ if (isset($_POST['btn'])) {
         } else {
             $sql = "INSERT INTO users(email, pass, pass_again) VALUES('$email', '$pass', '$pass_again')";
             if (mysqli_query($link, $sql)) {
-                echo 'REGISTER PLEASE LOGIN TO CONTINUE';
+                $_SESSION['success']= '<span class="alert alert-success">HONGERA UMEFANIKIWA KUJIUNGA NASI LOG IN KUENDEREA</span>';
                 //header("location:edit_profile.php");
             } else {
                 "SORRY WE COULD NOT REGISTER YOU";
@@ -123,46 +123,7 @@ if (isset($_POST['btn'])) {
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
-                                    <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
-                                        </div>
-                                        <div class="cart-btns">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- /Cart -->
 
                                 <!-- Menu Toogle -->
@@ -220,6 +181,14 @@ if (isset($_POST['btn'])) {
                 <!-- row -->
                 <div class="row">
                     <div class="col-md-6">
+                        <?php
+                        
+                        if (isset($_SESSION['success'])) {
+                            echo $_SESSION['success'];
+                        }
+                        
+                        
+                        ?>
                         <br>
                         <form action="register.php" class="form" method="post">
                             <h3 style="text-align: center; padding: 15px 20px;">PLEASE REGISTER TO CONTINUE</h3>
@@ -232,10 +201,10 @@ if (isset($_POST['btn'])) {
                                 <input type="password" class="form-control" id="pwd" name="pass">
                             </div>
                             <div class="form-group">
-                                <label for="pwd">Password:</label>
+                                <label for="pwd">Repeat your Password:</label>
                                 <input type="password" class="form-control" id="pwd" name="pass_again">
                             </div>
-                            <button type="submit" class="btn btn-primary" name="btn">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="btn">Register</button>
                         </form> 
                     </div>
 
@@ -284,11 +253,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">Hot deals</a></li>
-                                    <li><a href="#">Laptops</a></li>
-                                    <li><a href="#">Smartphones</a></li>
-                                    <li><a href="#">Cameras</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -299,11 +264,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Information</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Orders and Returns</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -312,11 +273,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">View Cart</a></li>
-                                    <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Track My Order</a></li>
-                                    <li><a href="#">Help</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>

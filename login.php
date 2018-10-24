@@ -20,7 +20,7 @@ if (isset($_POST['btn'])) {
                 $_SESSION['email'] = $email;
                 header("location:home.php");
             } else {
-                echo '<span style="color: red;" >Please fill all field correct to log in</span>';
+                $_SESSION['msg'] = '<span style="color: red;" class="alert alert-danger" >Samahani weka taarifa zako kwa usahihi</span>';
             }
         }
     }
@@ -118,46 +118,7 @@ if (isset($_POST['btn'])) {
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty"></div>
-                                    </a>
-                                    <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
-                                        </div>
-                                        <div class="cart-btns">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- /Cart -->
 
                                 <!-- Menu Toogle -->
@@ -217,6 +178,14 @@ if (isset($_POST['btn'])) {
                 <div class="row">
                     <div class="col-md-6">
                         <br>
+                        <?php 
+                        
+                        if (isset($_SESSION['msg'])) {
+                            echo $_SESSION['msg'];
+                            
+                        }
+                        
+                        ?>
                         <form action="login.php" class="form" method="post">
                             <h3 style="text-align: center; padding: 15px 20px;">PLEASE LOG IN TO CONTINUE</h3>
                             <div class="form-group">
@@ -227,7 +196,8 @@ if (isset($_POST['btn'])) {
                                 <label for="pwd">Password:</label>
                                 <input type="password" class="form-control" id="pwd" name="pass">
                             </div>
-                            <button type="submit" class="btn btn-primary" name="btn">Submit</button>
+                            <a href="">Forgot password?</a><br><br>
+                            <button type="submit" class="btn btn-primary" name="btn">Log in</button>
                         </form> 
                     </div>
 
@@ -276,11 +246,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">Hot deals</a></li>
-                                    <li><a href="#">Laptops</a></li>
-                                    <li><a href="#">Smartphones</a></li>
-                                    <li><a href="#">Cameras</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -291,11 +257,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Information</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Orders and Returns</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -304,11 +266,7 @@ if (isset($_POST['btn'])) {
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">View Cart</a></li>
-                                    <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Track My Order</a></li>
-                                    <li><a href="#">Help</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>

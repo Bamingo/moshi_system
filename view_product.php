@@ -36,6 +36,20 @@ session_start();
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            h3{
+                text-transform: uppercase;
+                padding-top: 15px;
+
+
+            }
+            .details{
+                padding: 15px;
+                
+                text-align: left;
+                
+            }
+        </style>
 
     </head>
     <body>
@@ -96,46 +110,7 @@ session_start();
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <span>Your Cart</span>
-                                        <div class="qty">3</div>
-                                    </a>
-                                    <div class="cart-dropdown">
-                                        <div class="cart-list">
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product01.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-
-                                            <div class="product-widget">
-                                                <div class="product-img">
-                                                    <img src="./img/product02.png" alt="">
-                                                </div>
-                                                <div class="product-body">
-                                                    <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                                </div>
-                                                <button class="delete"><i class="fa fa-close"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="cart-summary">
-                                            <small>3 Item(s) selected</small>
-                                            <h5>SUBTOTAL: $2940.00</h5>
-                                        </div>
-                                        <div class="cart-btns">
-                                            <a href="#">View Cart</a>
-                                            <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <!-- /Cart -->
 
                                 <!-- Menu Toogle -->
@@ -188,55 +163,87 @@ session_start();
         <!-- SECTION -->
         <div class="section">
             <!-- container -->
+            <div class="details">
+                <div class="row">
+                    <div class="col-md-4">
+                        <?php
+                        include 'db_connect.php';
+
+                        $sql = "SELECT * FROM adverts WHERE id = '" . $_GET['id'] . "'";
+                        $results = mysqli_query($link, $sql) or die(mysqli_error($link));
+                        if ($results) {
+
+                            while ($row = mysqli_fetch_array($results)) {
+                                echo '<img src="product_img/' . $row['name'] . '" height="350" width="450" class="img img-thumbnail">';
+                                echo '<h3>' . $row['product_name'] . '</h3>';
+                                echo '<h4>AINA YA BIDHAA</h4>';
+                                echo '<p>' . $row['category'] . '</p>';
+                                echo '<h4>BEI YA BIDHAA</h4>';
+                                echo '<p>TZS: ' . $row['product_price'] . '</p>';
+                                echo '<h4>IDADI YA BIDHAA</h4>';
+                                echo '<p>' . $row['quantity'] . '</p>';
+                                echo '<h4>MAELEZO YA BIDHAA</h4>';
+                                echo '<p>' . $row['descriptions'] . '</p>';
+                                echo '<h4>NAMBA YAKO YA SIMU</h4>';
+                                echo '<a href="" class="btn btn-primary">' . $row['phone'] . '</a>';
+                            }
+                        }
+                        ?>
+                    </div>
+                    <div class="col-md-6">
+                        hhjj
+                    </div>
+                </div>
+            </div>
             <div class="container-fluid">
                 <!-- row -->
 
                 <div class="row">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <table class="table table-bordered table-responsive">
 
                             <?php
-                            include 'db_connect.php';
+                            /* include 'db_connect.php';
 
-                            $sql = "SELECT * FROM adverts WHERE id = '" . $_GET['id'] . "'";
-                            $results = mysqli_query($link, $sql) or die(mysqli_error($link));
-                            if ($results) {
+                              $sql = "SELECT * FROM adverts WHERE id = '" . $_GET['id'] . "'";
+                              $results = mysqli_query($link, $sql) or die(mysqli_error($link));
+                              if ($results) {
 
-                                while ($row = mysqli_fetch_array($results)) {
-                                    echo '<tr>';
-                                    echo '<td colspan="2">' . '<img src="product_img/' . $row['name'] . '" height="300" width="450" class="img img-thumnail">' . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<td style= "font-weight:bold;">PRODUCT NAME</td>';
-                                    echo '<td>' . $row['product_name'] . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<tr>';
-                                    echo '<td style= "font-weight:bold;">PRODUCT CATEGORY</td>';
-                                    echo '<td>' . $row['category'] . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<tr>';
-                                    echo '<td style= "font-weight:bold;">PRODUCT QUANTITY</td>';
-                                    echo '<td>' . $row['quantity'] . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<td style= "font-weight:bold;">PRODUCT PRICE</td>';
-                                    echo '<td>' . 'TZS ' . $row['product_price'] . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<tr>';
-                                    echo '<td style= "font-weight:bold; text-align:center;" colspan="2">PRODUCT DETAILS</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<td colspan="2">' . $row['descriptions'] . '</td>';
-                                    echo '</tr>';
-                                    echo '<tr>';
-                                    echo '<td colspan="2">' . '<h2>PIGA SIMU: <a href="#"><i class="fa fa-phone"></i> ' . $row['phone'] . '</a></h2>' . '</td>';
-                                    echo '<tr>';
-                                }
-                            }
+                              while ($row = mysqli_fetch_array($results)) {
+                              echo '<tr>';
+                              echo '<td colspan="2">' . '<img src="product_img/' . $row['name'] . '" height="300" width="350" class="img img-thumnail">' . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<td style= "font-weight:bold;">PRODUCT NAME</td>';
+                              echo '<td>' . $row['product_name'] . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<tr>';
+                              echo '<td style= "font-weight:bold;">PRODUCT CATEGORY</td>';
+                              echo '<td>' . $row['category'] . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<tr>';
+                              echo '<td style= "font-weight:bold;">PRODUCT QUANTITY</td>';
+                              echo '<td>' . $row['quantity'] . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<td style= "font-weight:bold;">PRODUCT PRICE</td>';
+                              echo '<td>' . 'TZS ' . $row['product_price'] . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<tr>';
+                              echo '<td style= "font-weight:bold; text-align:center;" colspan="2">PRODUCT DETAILS</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<td colspan="2">' . $row['descriptions'] . '</td>';
+                              echo '</tr>';
+                              echo '<tr>';
+                              echo '<td colspan="2">' . '<h2>PIGA SIMU: <a href="#"><i class="fa fa-phone"></i> ' . $row['phone'] . '</a></h2>' . '</td>';
+                              echo '<tr>';
+                              }
+                              } */
                             ?>
                         </table>
                     </div>
@@ -281,11 +288,7 @@ session_start();
                             <div class="footer">
                                 <h3 class="footer-title">Categories</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">Hot deals</a></li>
-                                    <li><a href="#">Laptops</a></li>
-                                    <li><a href="#">Smartphones</a></li>
-                                    <li><a href="#">Cameras</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -296,11 +299,7 @@ session_start();
                             <div class="footer">
                                 <h3 class="footer-title">Information</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Orders and Returns</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -309,11 +308,7 @@ session_start();
                             <div class="footer">
                                 <h3 class="footer-title">Service</h3>
                                 <ul class="footer-links">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">View Cart</a></li>
-                                    <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Track My Order</a></li>
-                                    <li><a href="#">Help</a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
