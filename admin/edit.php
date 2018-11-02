@@ -188,11 +188,13 @@ if (empty($_SESSION['email'])) {
                         
                         if (isset($_POST['btn'])) {
                             $product_name = $_POST['product_name'];
-                            $id = $_POST['id'];
+                            
                             $phone = $_POST['phone'];
-                            $sql = "UPDATE adverts SET product_name = '$product_name', phone = '$phone' id='" . $_GET['id'] . "'";
-                            if (mysqli_query($link, $sql)) {
-                                echo'data updated'. mysqli_error($link);
+                            $sql = "UPDATE adverts SET product_name = '$product_name', phone = '$phone' where id='" . $_GET['id'] . "'";
+                            if (!mysqli_query($link, $sql)) {
+                                echo'data updated'. mysqli_error($link);                                die();
+                            } else {
+                                 echo'data updated';
                             }
                         }
 
@@ -201,7 +203,7 @@ if (empty($_SESSION['email'])) {
                         if ($results = mysqli_query($link, $sql)) {
 
                             while ($row = mysqli_fetch_array($results)) {
-                                echo'<form action="edit.php" class="form-group-sm" method="post" style="text-align: left; margin-top: 10px;" enctype="multipart/form-data">
+                                echo'<form action="edit.php?id='.$_GET['id'].'" class="form-group-sm" method="post" style="text-align: left; margin-top: 10px;" enctype="multipart/form-data">
                                     <h3 style="text-align: center; padding: 15px 20px;">UPLOAD YOUR PRODUCT HERE</h3>
                                     <div class="form-group">
                                         <label for="email">Jina la Bidhaa:</label>
@@ -237,7 +239,7 @@ if (empty($_SESSION['email'])) {
                                         <input type="text" class="form-control" name="phone" value="' . $row['phone'] . '">
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="descriptions" value="' . $row['descriptions'] . '" class="form form-control"></textarea>
+                                        <textarea name="descriptions" value="" class="form form-control">' . $row['descriptions'] . '</textarea>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="btn">Upload</button>
                                 </form>  ';

@@ -17,8 +17,9 @@ if (isset($_POST['btn'])) {
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_array($result);
                 $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['username'] = $usename;
                 $_SESSION['email'] = $email;
-                header("location:home.php");
+                header("location:index.php");
             } else {
                 $_SESSION['msg'] = '<span style="color: red;" class="alert alert-danger" >Samahani weka taarifa zako kwa usahihi</span>';
             }
@@ -150,7 +151,7 @@ if (isset($_POST['btn'])) {
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="#">Hot News</a></li>
+                        
                         <li><a href="#">Employments</a></li>
                         <li><a href="#">New sales</a></li>
                         <li><a href="#">Social</a></li>
@@ -226,68 +227,67 @@ if (isset($_POST['btn'])) {
 
         <!-- FOOTER -->
         <footer id="footer">
-            <!-- top footer -->
-            <div class="section">
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">About Us</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                                <ul class="footer-links">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>.</p>
+                            <ul class="footer-links">
 
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Categories</h3>
-                                <ul class="footer-links">
-                                   
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="clearfix visible-xs"></div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Information</h3>
-                                <ul class="footer-links">
-                                   
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Service</h3>
-                                <ul class="footer-links">
-                                    
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
                     </div>
-                    <!-- /row -->
-                </div>
-                <!-- /container -->
-            </div>
-            <!-- /top footer -->
 
-            <!-- bottom footer -->
-            <div id="bottom-footer" class="section">
-                <div class="container">
-                    <!-- row -->
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Links</h3>
+                            <ul class="footer-links">
 
-                    <!-- /row -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Sambaza</h3>
+                            <ul class="footer-links">
+                                <li><a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=urlencodedtext"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
+                                <li><a href="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-official"></i> Facebook</a></li>
+                                <li><a href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=%20Check%20up%20this%20awesome%20content' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;" 
+                                       target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Huduma zetu</h3>
+                            <ul class="footer-links">
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <!-- /container -->
+                <!-- /row -->
             </div>
-            <!-- /bottom footer -->
-        </footer>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
         <!-- /FOOTER -->
 
         <!-- jQuery Plugins -->

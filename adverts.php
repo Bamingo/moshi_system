@@ -135,9 +135,9 @@ if (empty($_SESSION['email'])) {
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="#">Hot News</a></li>
-                        <li><a href="#">Employments</a></li>
-                        <li><a href="#">New sales</a></li>
+                        
+                        <li><a href="jobs.php">Employments</a></li>
+                        <li><a href="store.php">Matangazo</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
                         <li><a href="#">Accessories</a></li>
@@ -181,10 +181,18 @@ if (empty($_SESSION['email'])) {
                                         if (move_uploaded_file($tmp_name, $destination . $name)) {
                                             $sql = "INSERT INTO adverts(product_name, category, quantity, name, product_price, phone, descriptions, user_id) VALUES('$product_name', '$category','$quantity','$name','$product_price', '$phone', '$descriptions', '" . $_SESSION['user_id'] . "')";
                                             if (mysqli_query($link, $sql)) {
-                                                echo '<span class="alert alert-success">HONGERA TANGAZO LAKO LIMETUMWA KIKAMIRIFU</span>';
+                                               echo '<span class="alert alert-success">HONGERA TANGAZO LAKO LIMETUMWA KIKAMIRIFU</span>';
                                             } else {
                                                 echo 'failed ' . mysqli_error($link);
                                             }
+                                            
+                                            /*
+                                            $sql = "INSERT INTO images(name,advert_id) VALUES('$name','1')";
+                                            if (mysqli_query($link, $sql)) {
+                                               // echo '<span class="alert alert-success">HONGERA TANGAZO LAKO LIMETUMWA KIKAMIRIFU</span>';
+                                            } else {
+                                                echo 'failed ' . mysqli_error($link);
+                                            }*/
                                         }
                                     } else {
                                         echo '<span class="alert alert-danger">TAFADHARI JAZA SEHEMU ZOTE UWEZE KUWEKA TANGAZO LAKO</span>';
@@ -306,14 +314,7 @@ if (empty($_SESSION['email'])) {
                     <!-- row -->
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <ul class="footer-payments">
-                                <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                                <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                            </ul>
+                           
                             <span class="copyright">
 
                             </span>

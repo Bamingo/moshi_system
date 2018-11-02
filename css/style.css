@@ -59,6 +59,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #333;
+  background-color:;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2031,13 +2032,13 @@ textarea.input {
 
 .footer-links li i {
   margin-right: 15px;
-  color: #D10024;
+  color: #009999;
   width: 14px;
   text-align: center;
 }
 
 .footer-links li a:hover {
-  color: #D10024;
+    color: #009999;
 }
 
 .copyright {
@@ -2200,4 +2201,26 @@ textarea.input {
 .form-group-sm{
     border: 1px black solid;
     padding: 15px 10px;
+}
+
+.card{
+    border: 1px solid #CCCCCC;
+    margin-top: 10px;
+    
+}
+
+.card-header{
+    background-color: #F7F7F7;
+    padding: 15px 10px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.card-footer{
+    background-color: #F7F7F7;
+    padding: 15px 10px;
+    border-top: 1px solid #CCCCCC;
+}
+
+.card-text{
+    padding: 5px;
 }
