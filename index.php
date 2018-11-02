@@ -7,10 +7,7 @@ session_start();
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-        <title>Welcome Moshi System</title>
-
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->       <title>GeniusTz</title>
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -45,12 +42,16 @@ session_start();
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            echo '<li><a href="my_account.php"><i class="fa fa-pencil"></i> POST TANGAZO</a></li>';
+                        }
+                        ?>
                     </ul>
                     <ul class="header-links pull-right">
                         <?php
                         if (isset($_SESSION['email'])) {
-                            echo '<li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong>'.$_SESSION['email'].'</strong></a></li>'.'<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>';
+                            echo '<li><a href="#"><i class="fa fa-envelope-o"></i> WELCOME <strong>' . $_SESSION['email'] . '</strong></a></li>' . '<li><a href="logout.php"><i class="fa fa-user-o"></i> Logout</a></li>';
                         } else {
                             echo '<li><a href="login.php"><i class="fa fa-sign-in"></i> Login</a></li><li><a href="register.php"><i class="fa fa-pencil"></i> Register</a></li>';
                         }
@@ -133,9 +134,9 @@ session_start();
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="index.php">Home</a></li>
-                        <li><a href="#">Hot News</a></li>
-                        <li><a href="#">Employments</a></li>
-                        <li><a href="#">New sales</a></li>
+
+                        <li><a href="jobs.php">Employments</a></li>
+                        <li><a href="store.php">Matangazo</a></li>
                         <li><a href="#">Social</a></li>
                         <li><a href="#">Moshi Tv</a></li>
 
@@ -170,7 +171,9 @@ session_start();
                     <!-- section title -->
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title">Bidhaa Mpya</h3>
+                            <center>
+                                <h3 class="title">MATANGAZO YA BIASHARA</h3><a href="store.php"> View all</a>
+                            </center>
                             <div class="section-nav">
                                 <!--<ul class="section-tab-nav tab-nav">
                                     <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
@@ -190,19 +193,16 @@ session_start();
                                 <!-- tab -->
                                 <div id="tab1" class="tab-pane active">
                                     <div class="products-slick" data-nav="#slick-nav-1">
-<?php
-include 'db_connect.php';
+                                        <?php
+                                        include 'db_connect.php';
 
-$sql = "SELECT * FROM adverts";
-if ($result = mysqli_query($link, $sql)) {
-    while ($row = mysqli_fetch_array($result)) {
-        echo '<div class="product">
+                                        $sql = "SELECT * FROM adverts";
+                                        if ($result = mysqli_query($link, $sql)) {
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                echo '<div class="product">
                                             <div class="product-img">
                                                 <img src="product_img/' . $row['name'] . '" alt="" height="250">
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
-                                                </div>
+                                                
                                             </div>
                                             <div class="product-body">
                                                 <p class="product-category">' . $row['category'] . '</p>
@@ -214,9 +214,9 @@ if ($result = mysqli_query($link, $sql)) {
                                             </div>
                                           
                                         </div>';
-    }
-}
-?>
+                                            }
+                                        }
+                                        ?>
 
                                         <!-- /product -->
 
@@ -249,70 +249,7 @@ if ($result = mysqli_query($link, $sql)) {
             <!-- container -->
             <div class="container">
                 <!-- row -->
-                <div class="row">
 
-                    <!-- section title -->
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h3 class="title">Habari Mchanganyiko</h3> <a href="">View All</a>
-                            <div class="section-nav">
-                                <ul class="section-tab-nav tab-nav">
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /section title -->
-
-                    <!-- Products tab & slick -->
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="products-tabs">
-                                <!-- tab -->
-                                <div id="tab1" class="tab-pane active">
-                                    <div class="products-slick" data-nav="#slick-nav-1">
-<?php
-include 'db_connect.php';
-
-$sql = "SELECT * FROM news";
-if ($result = mysqli_query($link, $sql)) {
-    while ($row = mysqli_fetch_array($result)) {
-        echo '<div class="product">
-                                            <div class="product-img">
-                                                <img src="news_img/' . $row['name'] . '" alt="" height="250">
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <h4 class="product-price">' . $row['title'] . '</h4>
-                                                <div class="product-btns">
-                                                    <a href="view_product.php?news_id=' . $row['news_id'] . '" class="btn btn-primary">Read More</a>
-                                                </div>
-                                            </div>
-                                          
-                                        </div>';
-    }
-}
-?>
-
-                                        <!-- /product -->
-
-
-
-                                        <!-- product -->
-
-                                        <!-- /product -->
-                                    </div>
-                                    <div id="slick-nav-1" class="products-slick-nav"></div>
-                                </div>
-                                <!-- /tab -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Products tab & slick -->
-                </div>
                 <!-- /row -->
             </div>
             <!-- /container -->
@@ -326,7 +263,9 @@ if ($result = mysqli_query($link, $sql)) {
                     <!-- section title -->
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h3 class="title">Nafasi za kazi na tenda</h3> <a href="">View All</a>
+                            <center>
+                                <h3 class="title">AJIRA</h3> <a href="jobs.php">View All</a>
+                            </center>
                             <div class="section-nav">
                                 <ul class="section-tab-nav tab-nav">
 
@@ -339,155 +278,181 @@ if ($result = mysqli_query($link, $sql)) {
                     <!-- Products tab & slick -->
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="products-tabs">
-                                <!-- tab -->
-                                <div id="tab1" class="tab-pane active">
-                                    <div class="products-slick" data-nav="#slick-nav-1">
-<?php
-include 'db_connect.php';
 
-$sql = "SELECT * FROM job_adverts";
-if ($result = mysqli_query($link, $sql)) {
-    while ($row = mysqli_fetch_array($result)) {
-        echo '<div class="product">
-                                            <div class="product-img">
-                                                <img src="product_img/' . $row['name'] . '" alt="" height="250">
-                                                <div class="product-label">
-                                                    <span class="sale">-30%</span>
-                                                    <span class="new">NEW</span>
-                                                </div>
-                                            </div>
-                                            <div class="product-body">
-                                                <h4 class="product-price">' . $row['job_title'] . '</h4>
-                                                <div class="product-btns">
-                                                    <a href="view_product.php?news_id=' . $row['job_id'] . '" class="btn btn-primary">Read More</a>
-                                                </div>
-                                            </div>
-                                          
-                                        </div>';
-    }
-}
-?>
+                            <?php
+                            include 'db_connect.php';
 
-                                        <!-- /product -->
-
-
-
-                                        <!-- product -->
-
-                                        <!-- /product -->
+                            $sql = "SELECT * FROM job_adverts";
+                            if ($result = mysqli_query($link, $sql)) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    echo '<div class="col-lg-3 mb-3">
+                                <div class="card h-100">
+                                    <h4 class="card-header">NAFASI ZA KAZI</h4>
+                                    <div class="card-body">
+                                        <p class="card-text">MWAJIRI: ' . $row['company_name'] . '</p>
+                                            <p class="card-text">POSITION: ' . $row['job_title'] . '</p>
+                                                    <p class="card-text">DEADLINE: ' . $row['deadline'] . '</p>
                                     </div>
-                                    <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    <div class="card-footer">
+                                        <a href="job.php?job_id=' . $row['job_id'] . '" class="btn btn-primary">Learn more</a>
+                                    </div>
                                 </div>
-                                <!-- /tab -->
+                            </div>';
+                                }
+                            }
+                            ?>
+
+                        </div>
+
+                        <div class="products-tabs">
+                            <!-- tab -->
+                            <div id="tab1" class="tab-pane active">
+                                <div class="products-slick" data-nav="#slick-nav-1">
+                                    <?php
+                                    /*                                     * include 'db_connect.php';
+
+                                      $sql = "SELECT * FROM job_adverts";
+                                      if ($result = mysqli_query($link, $sql)) {
+                                      while ($row = mysqli_fetch_array($result)) {
+                                      echo '<div class="product">
+                                      <div class="product-img">
+                                      <img src="product_img/' . $row['name'] . '" alt="" height="250">
+                                      <div class="product-label">
+
+                                      </div>
+                                      </div>
+                                      <div class="product-body">
+                                      <h4 class="product-price">' . $row['job_title'] . '</h4>
+                                      <div class="product-btns">
+                                      <a href="view_product.php?news_id=' . $row['job_id'] . '" class="btn btn-primary">Read More</a>
+                                      </div>
+                                      </div>
+
+                                      </div>';
+                                      }
+                                      }* */
+                                    ?>
+
+                                    <!-- /product -->
+
+
+
+                                    <!-- product -->
+
+                                    <!-- /product -->
+                                </div>
+                                <div id="slick-nav-1" class="products-slick-nav"></div>
                             </div>
+                            <!-- /tab -->
                         </div>
                     </div>
-                    <!-- /Products tab & slick -->
                 </div>
-                <!-- /row -->
+                <!-- /Products tab & slick -->
             </div>
-            <!-- /container -->
+            <!-- /row -->
         </div>
-        <!-- /SECTION -->
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
 
-        <!-- SECTION -->
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- NEWSLETTER -->
+    <div id="newsletter" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /NEWSLETTER -->
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
         <div class="section">
             <!-- container -->
             <div class="container">
                 <!-- row -->
-
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /SECTION -->
-
-        <!-- NEWSLETTER -->
-        <div id="newsletter" class="section">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
                 <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>.</p>
+                            <ul class="footer-links">
 
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /NEWSLETTER -->
-
-        <!-- FOOTER -->
-        <footer id="footer">
-            <!-- top footer -->
-            <div class="section">
-                <!-- container -->
-                <div class="container">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">About Us</h3>
-                                <p>.</p>
-                                <ul class="footer-links">
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Links</h3>
-                                <ul class="footer-links">
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="clearfix visible-xs"></div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Sambaza</h3>
-                                <ul class="footer-links">
-                                    <li><a href="register.php"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
-                                    <li><a href="register.php"><i class="fa fa-facebook-official"></i> Facebook</a></li>
-                                    <li><a href="register.php"><i class="fa fa-twitter"></i> Whatsapp</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-xs-6">
-                            <div class="footer">
-                                <h3 class="footer-title">Huduma zetu</h3>
-                                <ul class="footer-links">
-
-                                </ul>
-                            </div>
+                            </ul>
                         </div>
                     </div>
-                    <!-- /row -->
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Links</h3>
+                            <ul class="footer-links">
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Sambaza</h3>
+                            <ul class="footer-links">
+                                <li><a href="https://api.whatsapp.com/send?phone=whatsappphonenumber&text=urlencodedtext"><i class="fa fa-whatsapp"></i> Whatsapp</a></li>
+                                <li><a href="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-official"></i> Facebook</a></li>
+                                <li><a href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=%20Check%20up%20this%20awesome%20content' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;" 
+                                       target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Huduma zetu</h3>
+                            <ul class="footer-links">
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <!-- /container -->
+                <!-- /row -->
             </div>
-            <!-- /top footer -->
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
 
-            <!-- bottom footer -->
-            <div id="bottom-footer" class="section">
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
 
-                <!-- /container -->
-            </div>
-            <!-- /bottom footer -->
-        </footer>
-        <!-- /FOOTER -->
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
 
-        <!-- jQuery Plugins -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/nouislider.min.js"></script>
-        <script src="js/jquery.zoom.min.js"></script>
-        <script src="js/main.js"></script>
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
 
-    </body>
+</body>
 </html>
